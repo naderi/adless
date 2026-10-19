@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="341 341 1250 1250">
+  <!-- Owl on a shield. Left half #4d8fd6, right half #3a78bf (lighter for dark themes, see scripts/icons.ts). -->
+  <path d="M966 355 483 478v520c0 300 220 470 483 580z" fill="#4d8fd6"/>
+  <path d="M966 355l483 123v520c0 300-220 470-483 580z" fill="#3a78bf"/>
+  <g fill="#fff">
+    <path d="M622 572c58 78 138 103 173 114-55-2-105 14-140 44-40-60-43-110-33-158z"/>
+    <path d="M1310 572c-58 78-138 103-173 114 55-2 105 14 140 44 40-60 43-110 33-158z"/>
+    <path fill-rule="evenodd" d="M780 721a169 169 0 1 1 0 338 169 169 0 1 1 0-338zm0 89a80 80 0 1 0 0 160 80 80 0 1 0 0-160z"/>
+    <path fill-rule="evenodd" d="M1152 721a169 169 0 1 1 0 338 169 169 0 1 1 0-338zm0 89a80 80 0 1 0 0 160 80 80 0 1 0 0-160z"/>
+    <circle cx="745" cy="853" r="31"/>
+    <circle cx="1117" cy="853" r="31"/>
+    <path d="M966 978c-18 37-36 57-58 74l58 108 58-108c-22-17-40-37-58-74z"/>
+  </g>
+</svg>

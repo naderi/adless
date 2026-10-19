@@ -1,0 +1,219 @@
+.layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.nav {
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: none;
+    width: 260px;
+    height: 100vh;
+    padding: 20px 12px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 0 8px 20px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 36px;
+    padding: 0 12px;
+    border-radius: var(--radius-small);
+    color: var(--text);
+}
+
+.nav-item:hover {
+    background: color-mix(in srgb, var(--text) 6%, transparent);
+    text-decoration: none;
+}
+
+.nav-item.selected {
+    background: color-mix(in srgb, var(--text) 9%, transparent);
+}
+
+.nav-item.selected::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 3px;
+    border-radius: 2px;
+    background: var(--accent);
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+    max-width: 860px;
+    padding: 28px 40px 48px 24px;
+}
+
+.content > h2 {
+    margin-bottom: 20px;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0 2px 4px;
+    color: var(--subtext);
+}
+
+.status.warning {
+    color: var(--warning);
+}
+
+.toolbar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.toolbar .input {
+    flex: 1;
+}
+
+.footer-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.footer-buttons .sub {
+    margin-right: auto;
+}
+
+.expander {
+    width: 100%;
+    min-height: 44px;
+    border: 0;
+    border-top: 1px solid var(--card-border);
+    border-radius: 0 0 var(--radius) var(--radius);
+    background: transparent;
+    color: var(--accent);
+    font: inherit;
+    cursor: pointer;
+}
+
+.expander:hover {
+    background: var(--control-hover);
+}
+
+.examples {
+    margin: 0 2px 12px;
+    color: var(--subtext);
+}
+
+.examples code {
+    font: 12px var(--mono);
+    color: var(--text);
+}
+
+.about-head {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.about-head .name {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+}
+
+.field-label {
+    color: var(--subtext);
+}
+
+.value {
+    font-weight: 600;
+}
+
+@media (max-width: 720px) {
+    .layout {
+        flex-direction: column;
+    }
+
+    .nav {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: auto;
+        height: auto;
+        padding: 12px 16px 0;
+    }
+
+    .brand {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .content {
+        padding: 16px;
+    }
+}
+
+.toolbar.between {
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toolbar.between .status {
+    margin: 0;
+}
+
+.group-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin: 16px 0 6px;
+}
+
+.group-head .section-title {
+    margin: 0 2px 2px;
+}
+
+.group-head .button {
+    min-width: 0;
+    height: 28px;
+}
+
+.input.search {
+    margin-bottom: 8px;
+}
+
+.warning-box {
+    margin-top: 12px;
+    padding: 10px 12px;
+    border: 1px solid color-mix(in srgb, var(--warning), transparent 50%);
+    border-radius: var(--radius-small);
+    background: color-mix(in srgb, var(--warning), transparent 90%);
+    color: var(--text);
+}
+
+.toolbar .buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.status.sub {
+    margin-top: 2px;
+}

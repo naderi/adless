@@ -1,0 +1,283 @@
+/* Windows 11 (Fluent) look, shared by popup and settings page. Follows the system light/dark mode. */
+:root {
+    color-scheme: light;
+    --bg: #f3f3f3;
+    --card: #fbfbfb;
+    --card-border: #e5e5e5;
+    --text: #1b1b1b;
+    --subtext: #5d5d5d;
+    --control: #ffffff;
+    --control-hover: #f5f5f5;
+    --control-pressed: #ededed;
+    --control-border: #d9d9d9;
+    --strong-border: #8a8a8a;
+    --track: #e0e0e0;
+    --accent: #005fb8;
+    --accent-hover: #1a6fbf;
+    --accent-pressed: #3380c6;
+    --accent-text: #ffffff;
+    --success: #0f7b0f;
+    --warning: #ca5010;
+    --danger: #c42b1c;
+    --radius: 8px;
+    --radius-small: 4px;
+    --font: "Segoe UI Variable Text", "Segoe UI", system-ui, -apple-system, "Helvetica Neue", sans-serif;
+    --mono: "Cascadia Mono", Consolas, ui-monospace, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+        --bg: #202020;
+        --card: #2b2b2b;
+        --card-border: #3a3a3a;
+        --text: #ffffff;
+        --subtext: #c5c5c5;
+        --control: #373737;
+        --control-hover: #3d3d3d;
+        --control-pressed: #323232;
+        --control-border: #454545;
+        --strong-border: #9a9a9a;
+        --track: #454545;
+        --accent: #60cdff;
+        --accent-hover: #56b9e6;
+        --accent-pressed: #4da4cc;
+        --accent-text: #000000;
+        --success: #6ccb5f;
+        --warning: #fca048;
+        --danger: #ff99a4;
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 14px/20px var(--font);
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h2 {
+    margin: 0 0 4px;
+    font-size: 28px;
+    line-height: 36px;
+    font-weight: 600;
+}
+
+.section-title {
+    margin: 24px 2px 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sub {
+    color: var(--subtext);
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.hint {
+    color: var(--subtext);
+    margin: 0 2px 12px;
+}
+
+.error {
+    color: var(--danger);
+}
+
+/* ------------------------------------------------------------------ card */
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--card-border);
+    border-radius: var(--radius);
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 56px;
+    padding: 10px 16px;
+}
+
+.row + .row {
+    border-top: 1px solid var(--card-border);
+}
+
+.row-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.row-text .sub {
+    overflow-wrap: anywhere;
+}
+
+/* ---------------------------------------------------------------- button */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 96px;
+    height: 32px;
+    padding: 0 12px;
+    border: 1px solid var(--control-border);
+    border-bottom-color: color-mix(in srgb, var(--control-border), #000 12%);
+    border-radius: var(--radius-small);
+    background: var(--control);
+    color: var(--text);
+    font: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.button:hover {
+    background: var(--control-hover);
+}
+
+.button:active {
+    background: var(--control-pressed);
+    color: var(--subtext);
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}
+
+.button.primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+}
+
+.button.primary:hover {
+    background: var(--accent-hover);
+}
+
+.button.primary:active {
+    background: var(--accent-pressed);
+}
+
+.button.icon-only {
+    min-width: 32px;
+    width: 32px;
+    padding: 0;
+}
+
+.button.subtle {
+    border-color: transparent;
+    background: transparent;
+}
+
+.button.subtle:hover {
+    background: var(--control-hover);
+}
+
+.button svg {
+    flex: none;
+}
+
+:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 1px;
+}
+
+/* ---------------------------------------------------------------- toggle */
+
+.toggle {
+    position: relative;
+    flex: none;
+    width: 40px;
+    height: 20px;
+    margin: 0;
+    border: 1px solid var(--strong-border);
+    border-radius: 10px;
+    background: transparent;
+    cursor: pointer;
+    appearance: none;
+    transition: background 0.15s;
+}
+
+.toggle::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--subtext);
+    transition: transform 0.15s, background 0.15s;
+}
+
+.toggle:hover::after {
+    transform: scale(1.15);
+}
+
+.toggle:checked {
+    border-color: var(--accent);
+    background: var(--accent);
+}
+
+.toggle:checked::after {
+    background: var(--accent-text);
+    transform: translateX(20px);
+}
+
+.toggle:checked:hover::after {
+    transform: translateX(20px) scale(1.15);
+}
+
+.toggle:disabled {
+    opacity: 0.4;
+    cursor: default;
+}
+
+/* ----------------------------------------------------------------- input */
+
+.input,
+.textarea {
+    width: 100%;
+    border: 1px solid var(--control-border);
+    border-bottom: 1px solid var(--strong-border);
+    border-radius: var(--radius-small);
+    background: var(--control);
+    color: var(--text);
+    font: inherit;
+}
+
+.input {
+    height: 32px;
+    padding: 0 10px;
+}
+
+.textarea {
+    min-height: 280px;
+    padding: 8px 10px;
+    font: 13px/20px var(--mono);
+    resize: vertical;
+    white-space: pre;
+}
+
+.input:focus,
+.textarea:focus {
+    outline: none;
+    border-bottom: 2px solid var(--accent);
+}

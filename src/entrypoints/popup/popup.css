@@ -1,0 +1,161 @@
+body {
+    width: 320px;
+    padding: 12px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px 4px 12px;
+}
+
+.header .title {
+    flex: 1;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.site-name {
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.message {
+    margin: 0;
+    padding: 18px 16px;
+    color: var(--subtext);
+}
+
+.counter {
+    gap: 10px;
+    color: var(--accent);
+}
+
+.counter .count {
+    font-size: 20px;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.counter.inactive {
+    color: var(--subtext);
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.actions .button {
+    min-width: 0;
+}
+
+.actions .button {
+    flex: 1;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+}
+
+.footer .button.subtle:not(.icon-only) {
+    min-width: 0;
+}
+
+.row.type-row {
+    min-height: 40px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.type-count {
+    color: var(--subtext);
+    font-variant-numeric: tabular-nums;
+}
+
+.type-group {
+    border-top: 1px solid var(--card-border);
+}
+
+.type-row .row-text > span {
+    display: block;
+}
+
+/* The arrow that opens a type's blocked addresses; rows without one keep their text aligned. */
+.expand,
+.expand-placeholder {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.expand {
+    margin: -4px 0 -4px -6px;
+    padding: 4px 6px;
+    border: none;
+    border-radius: var(--radius-small);
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.expand:hover {
+    background: var(--control-hover);
+}
+
+.expand svg {
+    flex: none;
+    color: var(--subtext);
+    transition: transform 0.15s;
+}
+
+.expand.open svg {
+    transform: rotate(90deg);
+}
+
+.expand-placeholder {
+    padding-left: 20px;
+}
+
+.url-list {
+    max-height: 180px;
+    margin: 0;
+    padding: 0 16px 8px 36px;
+    overflow-y: auto;
+    list-style: none;
+    font: 12px/20px var(--mono);
+}
+
+.url-list li {
+    display: flex;
+    min-width: 0;
+    white-space: nowrap;
+}
+
+.url-host {
+    flex: none;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.url-rest {
+    overflow: hidden;
+    color: var(--subtext);
+    text-overflow: ellipsis;
+}
+
+.consent svg {
+    flex: none;
+    color: var(--success);
+}

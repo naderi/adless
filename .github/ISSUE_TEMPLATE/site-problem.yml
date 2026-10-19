@@ -1,0 +1,51 @@
+# Opened from the AdLess popup ("Report problem"), which fills in the page, version, browser and
+# settings; the field ids are the query parameters it uses.
+name: Problem on a website / Problem auf einer Webseite
+description: Ads still visible, a page that does not work, or a cookie banner AdLess did not reject.
+labels: ["site"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for the report. Fixes go into the AdLess filter list, which reaches every user within a day.
+        Danke für die Meldung! Korrekturen kommen in die AdLess-Filterliste und erreichen alle Nutzer innerhalb eines Tages.
+  - type: input
+    id: url
+    attributes:
+      label: Page / Seite
+      description: Address of the page (without personal data). / Adresse der Seite (ohne persönliche Daten).
+      placeholder: https://www.example.de/artikel
+    validations:
+      required: true
+  - type: dropdown
+    id: problem
+    attributes:
+      label: Problem
+      options:
+        - Ads or trackers are not blocked / Werbung oder Tracker werden nicht blockiert
+        - The page does not work properly / Die Seite funktioniert nicht richtig
+        - Cookie banner not rejected / Cookie-Banner nicht abgelehnt
+        - Anti-adblock message / Hinweis „Adblocker deaktivieren“
+        - Something else / Etwas anderes
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: What happens? / Was passiert?
+      description: Where on the page, what you expected. A screenshot helps. / Wo auf der Seite, was du erwartet hast. Ein Screenshot hilft.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: AdLess version
+  - type: input
+    id: browser
+    attributes:
+      label: Browser
+  - type: textarea
+    id: settings
+    attributes:
+      label: Settings / Einstellungen
+      render: text

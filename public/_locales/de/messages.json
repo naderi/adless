@@ -1,0 +1,317 @@
+{
+  "extName": {
+    "message": "AdLess"
+  },
+  "extDescription": {
+    "message": "Schlanker, moderner Werbeblocker. Blockiert Werbung, Tracker und Störendes – mit eigenen Filterlisten und Regeln."
+  },
+  "appDescription": {
+    "message": "Schlanker, moderner Werbeblocker für deinen Browser."
+  },
+  "toggleAdLess": {
+    "message": "AdLess ein- oder ausschalten"
+  },
+  "protectionPaused": {
+    "message": "AdLess ist ausgeschaltet."
+  },
+  "blockOnSite": {
+    "message": "Auf dieser Seite blockieren"
+  },
+  "siteUnavailable": {
+    "message": "Auf dieser Seite ist AdLess nicht aktiv."
+  },
+  "blockedOnPage": {
+    "message": "auf dieser Seite blockiert"
+  },
+  "hideElement": {
+    "message": "Element ausblenden"
+  },
+  "settings": {
+    "message": "Einstellungen"
+  },
+  "info": {
+    "message": "Info"
+  },
+  "typeScript": {
+    "message": "Skripte"
+  },
+  "typeImage": {
+    "message": "Bilder"
+  },
+  "typeFrame": {
+    "message": "Eingebettete Seiten"
+  },
+  "typeMedia": {
+    "message": "Audio und Video"
+  },
+  "typeConnection": {
+    "message": "Hintergrund-Anfragen"
+  },
+  "typeStyle": {
+    "message": "Stile und Schriften"
+  },
+  "typeCosmetic": {
+    "message": "Ausgeblendete Elemente"
+  },
+  "typeOff": {
+    "message": "auf dieser Seite nicht blockiert"
+  },
+  "navFilters": {
+    "message": "Filterlisten"
+  },
+  "navCustomLists": {
+    "message": "Eigene Listen"
+  },
+  "navRules": {
+    "message": "Eigene Regeln"
+  },
+  "navAllowlist": {
+    "message": "Ausnahmen"
+  },
+  "navGeneral": {
+    "message": "Allgemein"
+  },
+  "navAbout": {
+    "message": "Info"
+  },
+  "filtersActive": {
+    "message": "$1 Listen mit $2 Filtern aktiv"
+  },
+  "tooManyLists": {
+    "message": "Es können höchstens $1 Listen gleichzeitig aktiv sein."
+  },
+  "groupDefault": {
+    "message": "Grundschutz"
+  },
+  "groupAds": {
+    "message": "Werbeblockierung"
+  },
+  "groupPrivacy": {
+    "message": "Datenschutz"
+  },
+  "groupMalware": {
+    "message": "Sicherheit"
+  },
+  "groupAnnoyances": {
+    "message": "Störendes"
+  },
+  "groupMisc": {
+    "message": "Sonstiges"
+  },
+  "groupRegions": {
+    "message": "Sprachen und Regionen"
+  },
+  "addLanguages": {
+    "message": "Weitere Sprachen hinzufügen"
+  },
+  "hideLanguages": {
+    "message": "Fertig"
+  },
+  "searchLanguages": {
+    "message": "Sprachen suchen"
+  },
+  "removeList": {
+    "message": "Liste entfernen"
+  },
+  "resetGroup": {
+    "message": "Zurücksetzen"
+  },
+  "resetGroupHint": {
+    "message": "Listen dieser Gruppe und ihren Standardzustand wiederherstellen"
+  },
+  "resetAll": {
+    "message": "Alle Listen zurücksetzen"
+  },
+  "groupEmpty": {
+    "message": "Alle Listen dieser Gruppe wurden entfernt."
+  },
+  "noLanguages": {
+    "message": "Keine regionale Liste aktiv."
+  },
+  "customListsHint": {
+    "message": "Füge eine Filterliste über ihre Adresse hinzu. Unterstützt werden uBlock-Origin-, Adblock-Plus- und AdGuard-Syntax. Listen werden automatisch aktualisiert."
+  },
+  "add": {
+    "message": "Hinzufügen"
+  },
+  "adding": {
+    "message": "Wird geladen …"
+  },
+  "remove": {
+    "message": "Entfernen"
+  },
+  "updateNow": {
+    "message": "Jetzt aktualisieren"
+  },
+  "noCustomLists": {
+    "message": "Noch keine eigenen Listen."
+  },
+  "listInfo": {
+    "message": "$1 Filter · aktualisiert $2"
+  },
+  "listPending": {
+    "message": "Wird in Kürze geladen"
+  },
+  "errorDuplicate": {
+    "message": "Diese Liste ist bereits vorhanden."
+  },
+  "errorInvalidUrl": {
+    "message": "Bitte eine gültige http(s)-Adresse eingeben."
+  },
+  "userScriptsHint": {
+    "message": "Damit kosmetische Filter und Scriptlets aus eigenen Regeln und Listen wirken, erlaube Nutzerskripte für AdLess: chrome://extensions öffnen, bei AdLess „Details“ wählen und „Nutzerskripte zulassen“ einschalten."
+  },
+  "rulesHint": {
+    "message": "Ein Filter pro Zeile in uBlock-Origin-Syntax, Zeilen mit ! sind Kommentare."
+  },
+  "rulesExamples": {
+    "message": "Beispiele"
+  },
+  "exampleBlock": {
+    "message": "blockiert eine Domain"
+  },
+  "exampleHide": {
+    "message": "blendet Elemente auf einer Seite aus"
+  },
+  "exampleAllow": {
+    "message": "erlaubt eine Domain"
+  },
+  "pickedTitle": {
+    "message": "Ausgeblendete Elemente"
+  },
+  "pickedHint": {
+    "message": "Mit „Element ausblenden“ im Popup erstellt."
+  },
+  "pickedNone": {
+    "message": "Noch keine ausgeblendeten Elemente."
+  },
+  "allowlistHint": {
+    "message": "Auf diesen Seiten ist AdLess pausiert. Eine Domain pro Zeile, Subdomains sind eingeschlossen."
+  },
+  "save": {
+    "message": "Speichern"
+  },
+  "saved": {
+    "message": "Gespeichert"
+  },
+  "enableAdLess": {
+    "message": "Werbung und Tracker blockieren"
+  },
+  "enableAdLessHint": {
+    "message": "Schaltet AdLess auf allen Seiten ein oder aus."
+  },
+  "backup": {
+    "message": "Sicherung"
+  },
+  "exportSettings": {
+    "message": "Einstellungen exportieren"
+  },
+  "exportHint": {
+    "message": "Speichert Filterlisten, Regeln, ausgeblendete Elemente und Ausnahmen in einer Datei."
+  },
+  "exportButton": {
+    "message": "Exportieren"
+  },
+  "importSettings": {
+    "message": "Einstellungen importieren"
+  },
+  "importHint": {
+    "message": "Ersetzt die aktuellen Einstellungen durch eine gespeicherte Datei."
+  },
+  "importButton": {
+    "message": "Importieren"
+  },
+  "importFailed": {
+    "message": "Die Datei ist keine gültige AdLess-Sicherung."
+  },
+  "imported": {
+    "message": "Einstellungen importiert."
+  },
+  "version": {
+    "message": "Version $1"
+  },
+  "developer": {
+    "message": "Entwickler"
+  },
+  "website": {
+    "message": "Website"
+  },
+  "license": {
+    "message": "Lizenz"
+  },
+  "licenseValue": {
+    "message": "GPL-3.0 – freie Software"
+  },
+  "sourceCode": {
+    "message": "Quellcode"
+  },
+  "credits": {
+    "message": "Danksagung"
+  },
+  "creditsText": {
+    "message": "Die Filter-Engine enthält Code aus uBlock Origin Lite (© Raymond Hill, GPL-3.0), Cookie-Banner beantwortet autoconsent von DuckDuckGo (MPL-2.0). Die Filterlisten stammen von ihren Autoren: EasyList, uBlock-Filter, AdGuard, Peter Lowe und viele regionale Listen. Vielen Dank!"
+  },
+  "updateLists": {
+    "message": "Aktualisieren"
+  },
+  "updating": {
+    "message": "Wird aktualisiert …"
+  },
+  "filtersDate": {
+    "message": "Filterlisten vom $1"
+  },
+  "upToDate": {
+    "message": "AdLess ist aktuell, eigene Listen wurden neu geladen. Die mitgelieferten Filterlisten werden mit jeder AdLess-Version erneuert."
+  },
+  "updateInstalling": {
+    "message": "AdLess $1 mit neuen Filterlisten wird installiert …"
+  },
+  "updateThrottled": {
+    "message": "Eigene Listen wurden neu geladen. Der Browser erlaubt nur wenige Update-Prüfungen hintereinander, bitte später erneut versuchen."
+  },
+  "updateNotFromStore": {
+    "message": "Eigene Listen wurden neu geladen. Diese AdLess-Kopie wurde nicht aus einem Store installiert und kann daher nicht nach neuen Versionen suchen."
+  },
+  "showBlocked": {
+    "message": "Blockierte Adressen anzeigen"
+  },
+  "hideBlocked": {
+    "message": "Blockierte Adressen ausblenden"
+  },
+  "reportProblem": {
+    "message": "Problem melden"
+  },
+  "reportProblemHint": {
+    "message": "Noch Werbung zu sehen oder die Seite funktioniert nicht? Öffnet eine vorausgefüllte Meldung auf GitHub."
+  },
+  "cookieRejected": {
+    "message": "Cookie-Banner abgelehnt"
+  },
+  "cookieHidden": {
+    "message": "Cookie-Banner ausgeblendet"
+  },
+  "cookieFound": {
+    "message": "Cookie-Banner erkannt, nicht beantwortet"
+  },
+  "cookieBanners": {
+    "message": "Cookie-Banner ablehnen"
+  },
+  "cookieBannersHint": {
+    "message": "Beantwortet Cookie-Banner selbstständig mit „Ablehnen“ oder blendet sie aus, wo es keinen solchen Knopf gibt. Nicht auf Seiten, auf denen AdLess ausgeschaltet ist."
+  },
+  "ownListGroup": {
+    "message": "AdLess"
+  },
+  "ownList": {
+    "message": "AdLess-Filter"
+  },
+  "ownListHint": {
+    "message": "Eigene Korrekturen für Seiten aus Deutschland, Österreich und der Schweiz, aus den Meldungen der AdLess-Nutzer. Wird zweimal täglich aktualisiert."
+  },
+  "ownListInfo": {
+    "message": "$1 Filter · aktualisiert $2"
+  },
+  "ownListBundled": {
+    "message": "$1 Filter · aus dieser AdLess-Version, noch nicht heruntergeladen"
+  }
+}

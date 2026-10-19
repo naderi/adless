@@ -1,0 +1,4 @@
+#!/bin/sh
+# Stand-in for jq during the uBO Lite build: passes the input file through unchanged.
+for last; do :; done
+cat "$last"

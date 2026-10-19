@@ -1,0 +1,24 @@
+! Title: AdLess-Filter
+! Description: Fixes for sites in Germany, Austria and Switzerland: ads and trackers the big lists miss, and sites they break. Built from the reports of AdLess users.
+! Homepage: https://github.com/naderi/adless
+! License: GPL-3.0
+! Expires: 1 day
+!
+! AdLess compiles this list itself, so only this subset of the uBlock Origin syntax works:
+!   ||ads.example.com^                     block an address (patterns with |, ||, *, ^)
+!   ||example.com/ad/$script,third-party   options: script, image, stylesheet, xhr, subdocument,
+!                                          media, font, ping, websocket, other (also ~type),
+!                                          third-party, first-party, domain=a.de|~b.de,
+!                                          important, match-case
+!   @@||example.com/needed.js^             allow an address the other lists block
+!   example.de,example.at##.ad-banner      hide elements on these sites (plain CSS selectors)
+!   ##.ad-banner                           hide elements everywhere (use sparingly)
+!   example.de#@#.ad-banner                don't hide them on this site
+! Procedural filters (:has-text, :upward, ...), scriptlets (##+js) and regular expressions
+! are skipped. Every entry names the issue it comes from: ! #12 example.de
+!
+! ---------------------------------------------------------------- Ads and trackers
+
+! ---------------------------------------------------------------- Element hiding
+
+! ---------------------------------------------------------------- Fixes for broken sites

@@ -1,0 +1,31 @@
+{
+  "name": "adless",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lean, modern ad blocker",
+  "author": "Ali Naderi",
+  "license": "GPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "engine": "node scripts/build-engine.mjs",
+    "icons": "tsx scripts/icons.ts",
+    "dev": "wxt",
+    "build": "wxt build",
+    "zip": "wxt zip",
+    "check": "wxt prepare && tsc --noEmit"
+  },
+  "dependencies": {
+    "@duckduckgo/autoconsent": "16.55.0",
+    "preact": "^11.0.1"
+  },
+  "devDependencies": {
+    "@preact/preset-vite": "^2.10.6",
+    "@resvg/resvg-js": "^2.6.2",
+    "@types/chrome": "^0.3.5",
+    "@types/node": "^24.19.2",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "wxt": "^0.21.4"
+  }
+}

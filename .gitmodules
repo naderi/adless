@@ -1,0 +1,4 @@
+[submodule "vendor/uBlock"]
+	path = vendor/uBlock
+	url = https://github.com/gorhill/uBlock.git
+	shallow = true
