@@ -111,6 +111,17 @@ Justification if asked: *All JavaScript is bundled in the package. AdLess downlo
 - **Visibility:** Public
 - **Distribution:** All regions
 
+## Microsoft Edge Add-ons (Partner Center)
+
+Same package as for Chrome. What differs:
+
+- **Availability:** Visibility *Public*, Markets *all*
+- **Properties:** Category *Productivity*; privacy policy required: *Yes*, URL https://digitalent.dev/adless/privacy; Website https://digitalent.dev/en/projects/adless/; Support contact https://github.com/naderi/adless/issues/new?template=site-problem.yml; Mature content: No
+- **Store listings (English, German):** the same descriptions as above; **Extension logo 300×300:** `images/logo-300.png`; small promo tile 440×280 and large promo tile 1400×560 like Chrome; screenshots 1280×800 like Chrome
+- **Search terms (en):** ad blocker, adblock, cookie banner, block trackers, privacy, block ads, anti tracking
+- **Search terms (de):** Werbeblocker, Adblocker, Cookie-Banner, Tracker blockieren, Datenschutz, Werbung blockieren, Privatsphäre
+- **Notes for certification:** the reviewer notes below
+
 ## Notes for the reviewer (Test instructions, optional)
 
 ```

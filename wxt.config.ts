@@ -17,6 +17,23 @@ const engineManifest = () => {
     return JSON.parse(fs.readFileSync(file, 'utf8'));
 };
 
+/**
+ * Package paths without the leading slash uBO Lite writes: browsers read both the same way, but
+ * the Edge Add-ons validator looks for a file literally named "/rulesets/...".
+ */
+const relative = (p: string) => p.replace(/^\//, '');
+
+const packagePaths = (engine: ReturnType<typeof engineManifest>) => ({
+    declarative_net_request: {
+        ...engine.declarative_net_request,
+        rule_resources: engine.declarative_net_request.rule_resources.map((r: { path: string }) => ({ ...r, path: relative(r.path) })),
+    },
+    web_accessible_resources: engine.web_accessible_resources.map((w: { resources: string[] }) => ({
+        ...w,
+        resources: w.resources.map(relative),
+    })),
+});
+
 /** Copies the engine into the build without replacing AdLess's own files (pages, icons). */
 const copyEngine = (outDir: string) => {
     fs.cpSync(ENGINE, outDir, {
@@ -82,8 +99,7 @@ export default defineConfig({
             permissions: [...engine.permissions, 'webRequest', 'webNavigation'],
             host_permissions: engine.host_permissions,
             commands: engine.commands,
-            declarative_net_request: engine.declarative_net_request,
-            web_accessible_resources: engine.web_accessible_resources,
+            ...packagePaths(engine),
             storage: engine.storage,
             incognito: engine.incognito,
         };
