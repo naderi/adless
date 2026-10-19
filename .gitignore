@@ -5,6 +5,5 @@ dist/
 backup/
 *.zip
 
-_stuff/
 assets/proposals/
 engine/
