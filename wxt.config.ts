@@ -70,7 +70,7 @@ export default defineConfig({
             description: '__MSG_extDescription__',
             default_locale: 'en',
             author: 'Ali Naderi',
-            homepage_url: 'https://digitalent.dev',
+            homepage_url: 'https://digitalent.dev/en/projects/adless/',
             minimum_chrome_version: engine.minimum_chrome_version,
             icons: { 16: 'img/icon_16.png', 32: 'img/icon_32.png', 64: 'img/icon_64.png', 128: 'img/icon_128.png' },
             action: {

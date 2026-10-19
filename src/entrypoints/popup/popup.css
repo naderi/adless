@@ -50,8 +50,12 @@ body {
     margin-top: 8px;
 }
 
+/* Two buttons side by side: tighter than usual, so the German labels fit. */
 .actions .button {
     min-width: 0;
+    gap: 6px;
+    padding: 0 8px;
+    font-size: 13px;
 }
 
 .actions .button {
