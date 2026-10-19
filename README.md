@@ -67,4 +67,12 @@ AdLess uses the filtering engine of [uBlock Origin Lite](https://github.com/uBlo
 
 [GPL-3.0](LICENSE). The filtering engine contains code from uBlock Origin Lite (© Raymond Hill, GPL-3.0), autoconsent is licensed under MPL-2.0, the filter lists under their authors' licenses. The name and logo "AdLess" are not covered by the license.
 
+## Support
+
+If AdLess saves you time, you can support its development on Ko‑fi. ☕
+
+<a href='https://ko-fi.com/N7N123QIX0' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi2.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
+---
+
 © 2026 [Ali Naderi](https://github.com/naderi) · [digitalent.dev](https://digitalent.dev/en/)
