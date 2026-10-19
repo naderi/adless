@@ -19,7 +19,7 @@ A lean, modern ad blocker for Chrome and Edge. Blocks ads, trackers and annoyanc
 
 ## Installation
 
-AdLess is on its way to the Chrome Web Store and Edge Add-ons. Until then, build it from source (below) and load it as an unpacked extension.
+AdLess is on its way to the Chrome Web Store and Edge Add-ons, and a version for **Firefox** will follow. Until then, build it from source (below) and load it as an unpacked extension.
 
 ## Using it
 
