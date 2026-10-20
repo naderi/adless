@@ -25,12 +25,14 @@ Default language **English**; then add **German** (Deutsch) as a localized listi
 - **Support URL:** https://github.com/naderi/adless/issues/new?template=site-problem.yml
 - **Mature content:** No
 
+Do not list filter list names (EasyList, AdGuard, …) in the descriptions: the Chrome Web Store rejected 0.1.0 for that as "excessive keywords" (Spam and Placement, ref. Yellow Argon, 2026-10-20).
+
 ### Description (en)
 
 ```
 AdLess is a lean, modern ad blocker. It blocks ads, trackers and annoyances, says "no" to cookie banners for you – and shows exactly what it blocked.
 
-• Blocks ads, trackers, malware sites and annoyances with the well-known filter lists: EasyList, EasyPrivacy, uBlock filters, Peter Lowe, AdGuard and many regional lists
+• Blocks ads, trackers, malware sites and annoyances with well-known, community-maintained filter lists, including regional lists for many countries
 • Rejects cookie banners on its own, or hides them where there is no reject button
 • The popup shows what was blocked on the page – scripts, images, embedded pages, audio and video, background requests, styles and fonts – and lists the blocked addresses of each kind
 • Allow a kind of content on one site with a single switch, or turn AdLess off for a site
@@ -52,7 +54,7 @@ Open source (GPL-3.0): https://github.com/naderi/adless
 ```
 AdLess ist ein schlanker, moderner Werbeblocker. Er blockiert Werbung, Tracker und Störendes, sagt für dich „Nein“ zu Cookie-Bannern – und zeigt genau, was er blockiert hat.
 
-• Blockiert Werbung, Tracker, Schadseiten und Störendes mit den bekannten Filterlisten: EasyList, EasyPrivacy, uBlock-Filter, Peter Lowe, AdGuard und viele regionale Listen
+• Blockiert Werbung, Tracker, Schadseiten und Störendes mit bewährten, von der Community gepflegten Filterlisten, auch mit regionalen Listen für viele Länder
 • Lehnt Cookie-Banner selbstständig ab oder blendet sie aus, wo es keinen Ablehnen-Knopf gibt
 • Das Popup zeigt, was auf der Seite blockiert wurde – Skripte, Bilder, eingebettete Seiten, Audio und Video, Hintergrund-Anfragen, Stile und Schriften – und listet die blockierten Adressen jeder Art auf
 • Eine Art von Inhalten auf einer Seite mit einem Schalter erlauben, oder AdLess für eine Seite ausschalten
