@@ -84,7 +84,7 @@ jobs:
           fi
           code=yes
           if [ -n "$PREVIOUS" ] && git diff --quiet "$PREVIOUS" HEAD -- . \
-            ':!public/filters' ':!README*' ':!docs' ':!store' ':!.github' ':!.gitignore'; then
+            ':!public/filters' ':!README*' ':!docs' ':!store' ':!.github' ':!.gitignore' ':!scripts/publish-stores.mjs'; then
             code=no
           fi
           echo "Filter rules changed: $filters, code changed: $code"
@@ -127,7 +127,7 @@ jobs:
             echo "Filter lists as of $(date -u +%Y-%m-%d)."
             if [ -n "$PREVIOUS" ]; then
               log=$(git log --no-merges --format='- %s' "$PREVIOUS..HEAD" -- . \
-                ':!public/filters' ':!README*' ':!docs' ':!store' ':!.github' ':!.gitignore')
+                ':!public/filters' ':!README*' ':!docs' ':!store' ':!.github' ':!.gitignore' ':!scripts/publish-stores.mjs')
               if [ -n "$log" ]; then
                 printf '\n## Changes\n\n%s\n' "$log"
               fi
