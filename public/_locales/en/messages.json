@@ -119,6 +119,12 @@
   "resetGroupHint": {
     "message": "Restore the lists of this group and their default state"
   },
+  "allLists": {
+    "message": "All lists"
+  },
+  "allListsHint": {
+    "message": "Turns on every list except languages and regions. Blocks the most, but a site breaks now and then. Turning it off restores the default lists."
+  },
   "resetAll": {
     "message": "Reset all lists"
   },

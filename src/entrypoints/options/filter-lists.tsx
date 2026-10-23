@@ -179,6 +179,21 @@ export const FilterLists = () => {
     const filterCount = enabledStock.reduce((sum, r) => sum + (r.filters?.accepted ?? 0), 0);
     const allIds = data.rulesets.map((r) => r.id);
 
+    // "All lists" leaves out languages and regions: those only help on sites in that language.
+    const broadIds = data.rulesets.filter((r) => groupOf(r) !== 'regions').map((r) => r.id);
+    const allListsOn = data.ownList.enabled && broadIds.every((id) => isEnabled(id) && !data.hidden.includes(id));
+
+    const setAllLists = async (on: boolean) => {
+        if (!on) {
+            reset(broadIds);
+            return;
+        }
+        if (!data.ownList.enabled) {
+            await setOwnListEnabled(true);
+        }
+        await save([...new Set([...data.enabled, ...broadIds])], data.hidden.filter((h) => !broadIds.includes(h)));
+    };
+
     return (
         <>
             <div class="toolbar between">
@@ -198,6 +213,12 @@ export const FilterLists = () => {
             </div>
             {updateMessage && <p class="hint">{updateMessage}</p>}
             {error && <p class="hint error">{error}</p>}
+
+            <div class="card">
+                <Row title={t('allLists')} description={t('allListsHint')}>
+                    <Toggle checked={allListsOn} label={t('allLists')} onChange={(on) => void setAllLists(on)} />
+                </Row>
+            </div>
 
             <h3 class="section-title">{t('ownListGroup')}</h3>
             <div class="card">

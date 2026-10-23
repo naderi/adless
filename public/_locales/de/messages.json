@@ -119,6 +119,12 @@
   "resetGroupHint": {
     "message": "Listen dieser Gruppe und ihren Standardzustand wiederherstellen"
   },
+  "allLists": {
+    "message": "Alle Listen"
+  },
+  "allListsHint": {
+    "message": "Schaltet alle Listen außer Sprachen und Regionen ein. Blockiert am meisten, dafür funktioniert ab und zu eine Seite nicht richtig. Ausschalten stellt die Standardlisten wieder her."
+  },
   "resetAll": {
     "message": "Alle Listen zurücksetzen"
   },
