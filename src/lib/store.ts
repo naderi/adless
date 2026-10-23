@@ -68,8 +68,12 @@ export const COUNTS_KEY = 'adlessBlocked';
 export const readCounts = async (tabId: number): Promise<TabCounts> =>
     ((await chrome.storage.session.get(COUNTS_KEY))[COUNTS_KEY] as Record<number, TabCounts> | undefined)?.[tabId] ?? {};
 
-/** Addresses blocked per tab and content type, the most recent ones, for the popup's lists. */
-export type TabUrls = Partial<Record<BlockType, string[]>>;
+/**
+ * Addresses blocked per tab and content type, the most recent ones, for the popup's lists. Each
+ * address is listed once, with how often it was blocked, so the counts add up to the type's total.
+ */
+export type BlockedUrl = { url: string; times: number };
+export type TabUrls = Partial<Record<BlockType, BlockedUrl[]>>;
 export const URLS_KEY = 'adlessBlockedUrls';
 export const MAX_URLS_PER_TYPE = 100;
 

@@ -3,6 +3,7 @@ import { useEffect, useState } from 'preact/hooks';
 
 import {
     BLOCK_TYPES,
+    type BlockedUrl,
     type BlockType,
     readConsent,
     readCounts,
@@ -32,7 +33,7 @@ type State = {
     /** Filtering level of the current site; null on pages AdLess cannot filter. */
     level: number | null;
     hostname: string;
-    types: { type: BlockType; blocked: number; enabled: boolean; urls: string[] }[];
+    types: { type: BlockType; blocked: number; enabled: boolean; urls: BlockedUrl[] }[];
     /** The cookie banner AdLess answered, if any and if that is switched on. */
     consent?: TabConsent;
 };
@@ -82,7 +83,7 @@ const reportProblem = async (tab: chrome.tabs.Tab, state: State) => {
 };
 
 /** An address in the list of blocked requests: the host in front, the rest shortened by the layout. */
-const BlockedUrl = ({ url }: { url: string }) => {
+const BlockedUrlItem = ({ url, times }: BlockedUrl) => {
     let host = url;
     let rest = '';
     try {
@@ -96,6 +97,7 @@ const BlockedUrl = ({ url }: { url: string }) => {
         <li title={url}>
             <span class="url-host">{host}</span>
             <span class="url-rest">{rest}</span>
+            {times > 1 && <span class="url-times">×{times.toLocaleString()}</span>}
         </li>
     );
 };
@@ -298,7 +300,7 @@ const Popup = () => {
                                     </div>
                                     {open && (
                                         <ul class="url-list">
-                                            {type.urls.map((url) => <BlockedUrl key={url} url={url} />)}
+                                            {type.urls.map((url) => <BlockedUrlItem key={url.url} {...url} />)}
                                         </ul>
                                     )}
                                 </div>

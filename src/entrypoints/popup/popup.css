@@ -159,6 +159,13 @@ body {
     text-overflow: ellipsis;
 }
 
+.url-times {
+    flex: none;
+    margin-left: auto;
+    padding-left: 8px;
+    color: var(--subtext);
+}
+
 .consent svg {
     flex: none;
     color: var(--success);

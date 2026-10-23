@@ -210,7 +210,9 @@ const count = (tabId: number, resourceType: string, url: string) => {
         tab[type] = (tab[type] ?? 0) + 1;
         // Newest first, each address once.
         const tabUrls = urls[tabId] ??= {};
-        tabUrls[type] = [url, ...(tabUrls[type] ?? []).filter((u) => u !== url)].slice(0, MAX_URLS_PER_TYPE);
+        const list = tabUrls[type] ?? [];
+        const times = (list.find((u) => u.url === url)?.times ?? 0) + 1;
+        tabUrls[type] = [{ url, times }, ...list.filter((u) => u.url !== url)].slice(0, MAX_URLS_PER_TYPE);
     });
 };
 
