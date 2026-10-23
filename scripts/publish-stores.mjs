@@ -3,6 +3,7 @@
  * A store is skipped when its credentials are not set.
  *
  *   node scripts/publish-stores.mjs dist/adless-<version>-chrome.zip
+ *   node scripts/publish-stores.mjs --check     only signs in and shows the item's status
  *
  * Chrome Web Store API v2: CWS_CLIENT_ID, CWS_CLIENT_SECRET, CWS_REFRESH_TOKEN, CWS_PUBLISHER_ID
  * Edge Add-ons API v1.1:   EDGE_CLIENT_ID, EDGE_API_KEY, EDGE_PRODUCT_ID
@@ -11,11 +12,12 @@ import fs from 'node:fs';
 
 const CHROME_ITEM = 'mfddbnkcgfcpnchpekbgolnbjckbhmmm';
 
+const check = process.argv[2] === '--check';
 const zipFile = process.argv[2];
-if (!zipFile || !fs.existsSync(zipFile)) {
+if (!check && (!zipFile || !fs.existsSync(zipFile))) {
     throw new Error(`ZIP not found: ${zipFile}`);
 }
-const zip = fs.readFileSync(zipFile);
+const zip = check ? undefined : fs.readFileSync(zipFile);
 const env = process.env;
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -41,6 +43,11 @@ const chrome = async () => {
     });
     const headers = { Authorization: `Bearer ${token.access_token}` };
     const item = `publishers/${env.CWS_PUBLISHER_ID}/items/${CHROME_ITEM}`;
+    if (check) {
+        const { body } = await request(`https://chromewebstore.googleapis.com/v2/${item}:fetchStatus`, { headers });
+        console.log('Chrome Web Store: signed in', JSON.stringify(body));
+        return;
+    }
 
     const { body: upload } = await request(`https://chromewebstore.googleapis.com/upload/v2/${item}:upload`, {
         method: 'POST',
@@ -63,6 +70,11 @@ const chrome = async () => {
 const edge = async () => {
     const api = `https://api.addons.microsoftedge.microsoft.com/v1/products/${env.EDGE_PRODUCT_ID}/submissions`;
     const headers = { Authorization: `ApiKey ${env.EDGE_API_KEY}`, 'X-ClientID': env.EDGE_CLIENT_ID };
+    if (check) {
+        // The API has no read-only call, so the credentials only show on the first upload.
+        console.log('Edge Add-ons: credentials set, not checked');
+        return;
+    }
 
     /** Edge answers 202 with the operation in the Location header and is polled until it is done. */
     const operation = async (url, response) => {

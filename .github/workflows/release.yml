@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
     inputs:
       dry_run:
-        description: Only build (ZIP as workflow artifact), no release, no store upload
+        description: Only build (ZIP as workflow artifact) and check the store credentials, no release, no store upload
         type: boolean
         default: false
       stores:
@@ -104,6 +104,18 @@ jobs:
         with:
           name: adless-${{ steps.version.outputs.version }}-chrome
           path: dist/chrome-mv3
+
+      - name: Store credentials
+        if: inputs.dry_run
+        env:
+          CWS_CLIENT_ID: ${{ secrets.CWS_CLIENT_ID }}
+          CWS_CLIENT_SECRET: ${{ secrets.CWS_CLIENT_SECRET }}
+          CWS_REFRESH_TOKEN: ${{ secrets.CWS_REFRESH_TOKEN }}
+          CWS_PUBLISHER_ID: ${{ secrets.CWS_PUBLISHER_ID }}
+          EDGE_CLIENT_ID: ${{ secrets.EDGE_CLIENT_ID }}
+          EDGE_API_KEY: ${{ secrets.EDGE_API_KEY }}
+          EDGE_PRODUCT_ID: ${{ secrets.EDGE_PRODUCT_ID }}
+        run: node scripts/publish-stores.mjs --check
 
       - name: GitHub release
         if: steps.changes.outputs.skip != 'true' && !inputs.dry_run
