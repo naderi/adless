@@ -20,5 +20,9 @@
 ! ---------------------------------------------------------------- Ads and trackers
 
 ! ---------------------------------------------------------------- Element hiding
+! Forum 2026-10-23 golem.de: sponsored articles ("Anzeige"), course and job boxes
+golem.de##li:has(> .go-ticker-teaser .go-label--sponsored)
+golem.de##article:has(.go-label--sponsored)
+golem.de##.go-teaser-block--career
 
 ! ---------------------------------------------------------------- Fixes for broken sites
