@@ -74,6 +74,8 @@ const buildServiceWorker = async (outDir: string) => {
 export default defineConfig({
     srcDir: 'src',
     outDir: 'dist',
+    // Named after the manifest version, which releases extend with a build number.
+    zip: { artifactTemplate: '{{name}}-{{version}}-{{browser}}.zip' },
     vite: () => ({
         plugins: [preact()],
         // Preload links with crossorigin do not match how extension pages load their modules,
@@ -86,6 +88,8 @@ export default defineConfig({
             name: '__MSG_extName__',
             description: '__MSG_extDescription__',
             default_locale: 'en',
+            // Releases append a build number to the version in package.json (see .github/workflows/release.yml).
+            ...(process.env.ADLESS_VERSION ? { version: process.env.ADLESS_VERSION } : {}),
             author: 'Ali Naderi',
             homepage_url: 'https://digitalent.dev/en/projects/adless/',
             minimum_chrome_version: engine.minimum_chrome_version,

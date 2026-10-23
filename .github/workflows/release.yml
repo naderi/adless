@@ -1,0 +1,137 @@
+# Weekly release with fresh filter lists: builds AdLess, publishes a GitHub release and submits it
+# to the Chrome Web Store and the Edge Add-ons (scripts/publish-stores.mjs).
+# The version is the one in package.json plus a build number (0.1.0 -> 0.1.0.1, 0.1.0.2, ...);
+# a new version in package.json starts without one. Nothing is released when neither the bundled
+# filter rules nor the code changed since the last release.
+name: Release
+
+on:
+  schedule:
+    - cron: '0 4 * * 1' # Mondays, 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: Only build (ZIP as workflow artifact), no release, no store upload
+        type: boolean
+        default: false
+      stores:
+        description: Submit to the Chrome Web Store and Edge Add-ons
+        type: boolean
+        default: true
+      force:
+        description: Release even if nothing changed
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency: release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 12.14.0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Version
+        id: version
+        run: |
+          base=$(node -p "require('./package.json').version")
+          latest=$(git tag --list "v$base" "v$base.*" --sort=-v:refname | head -n 1)
+          if [ -z "$latest" ]; then
+            version=$base
+          elif [ "$latest" = "v$base" ]; then
+            version=$base.1
+          else
+            version=$base.$(( ${latest##*.} + 1 ))
+          fi
+          previous=$(git tag --list 'v*' --sort=-v:refname | head -n 1)
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "previous=$previous" >> "$GITHUB_OUTPUT"
+          echo "AdLess $version (previous release: ${previous:-none})"
+
+      - name: Engine with the current filter lists
+        run: pnpm engine
+
+      - name: Changes since the last release
+        id: changes
+        env:
+          PREVIOUS: ${{ steps.version.outputs.previous }}
+          FORCE: ${{ inputs.force }}
+        run: |
+          find engine/rulesets -type f -print0 | sort -z | xargs -0 sha256sum | sha256sum | cut -c1-64 > filters.sha256
+          filters=yes
+          if [ -n "$PREVIOUS" ] && gh release download "$PREVIOUS" --pattern filters.sha256 --output previous.sha256 2>/dev/null \
+            && cmp -s filters.sha256 previous.sha256; then
+            filters=no
+          fi
+          code=yes
+          if [ -n "$PREVIOUS" ] && git diff --quiet "$PREVIOUS" HEAD -- . \
+            ':!public/filters' ':!README*' ':!docs' ':!store' ':!.github' ':!.gitignore'; then
+            code=no
+          fi
+          echo "Filter rules changed: $filters, code changed: $code"
+          if [ "$filters" = no ] && [ "$code" = no ] && [ "$FORCE" != true ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Build
+        if: steps.changes.outputs.skip != 'true'
+        env:
+          ADLESS_VERSION: ${{ steps.version.outputs.version }}
+        run: pnpm zip
+
+      - name: Upload build
+        if: steps.changes.outputs.skip != 'true' && inputs.dry_run
+        uses: actions/upload-artifact@v4
+        with:
+          name: adless-${{ steps.version.outputs.version }}-chrome
+          path: dist/chrome-mv3
+
+      - name: GitHub release
+        if: steps.changes.outputs.skip != 'true' && !inputs.dry_run
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+          PREVIOUS: ${{ steps.version.outputs.previous }}
+        run: |
+          {
+            echo "Filter lists as of $(date -u +%Y-%m-%d)."
+            if [ -n "$PREVIOUS" ]; then
+              log=$(git log --no-merges --format='- %s' "$PREVIOUS..HEAD" -- . \
+                ':!public/filters' ':!README*' ':!docs' ':!store' ':!.github' ':!.gitignore')
+              if [ -n "$log" ]; then
+                printf '\n## Changes\n\n%s\n' "$log"
+              fi
+            fi
+          } > notes.md
+          gh release create "v$VERSION" "dist/adless-$VERSION-chrome.zip" filters.sha256 \
+            --target "$GITHUB_SHA" --title "AdLess $VERSION" --notes-file notes.md
+
+      - name: Chrome Web Store and Edge Add-ons
+        if: steps.changes.outputs.skip != 'true' && !inputs.dry_run && (github.event_name == 'schedule' || inputs.stores)
+        env:
+          CWS_CLIENT_ID: ${{ secrets.CWS_CLIENT_ID }}
+          CWS_CLIENT_SECRET: ${{ secrets.CWS_CLIENT_SECRET }}
+          CWS_REFRESH_TOKEN: ${{ secrets.CWS_REFRESH_TOKEN }}
+          CWS_PUBLISHER_ID: ${{ secrets.CWS_PUBLISHER_ID }}
+          EDGE_CLIENT_ID: ${{ secrets.EDGE_CLIENT_ID }}
+          EDGE_API_KEY: ${{ secrets.EDGE_API_KEY }}
+          EDGE_PRODUCT_ID: ${{ secrets.EDGE_PRODUCT_ID }}
+        run: node scripts/publish-stores.mjs "dist/adless-${{ steps.version.outputs.version }}-chrome.zip"
