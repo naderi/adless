@@ -19,7 +19,7 @@ A lean, modern ad blocker for Chrome and Edge. Blocks ads, trackers and annoyanc
 
 ## Installation
 
-**[Get AdLess from the Chrome Web Store](https://chromewebstore.google.com/detail/adless/mfddbnkcgfcpnchpekbgolnbjckbhmmm)** – it works in Chrome and also in Edge (allow extensions from other stores when Edge asks). The Edge Add-ons listing is on its way, and a version for **Firefox** will follow. You can also build it from source (below) and load it as an unpacked extension.
+**[Get AdLess from the Chrome Web Store](https://chromewebstore.google.com/detail/adless/mfddbnkcgfcpnchpekbgolnbjckbhmmm)** for Chrome or **[from Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/adless/ipacahpkcihocpplflihnieajgbaibhh)** for Edge. A version for **Firefox** will follow. You can also build it from source (below) and load it as an unpacked extension.
 
 ## Using it
 

@@ -19,7 +19,7 @@ Ein schlanker, moderner Werbeblocker für Chrome und Edge. Blockiert Werbung, Tr
 
 ## Installation
 
-**[AdLess im Chrome Web Store holen](https://chromewebstore.google.com/detail/adless/mfddbnkcgfcpnchpekbgolnbjckbhmmm)** – funktioniert in Chrome und auch in Edge (Erweiterungen aus anderen Stores zulassen, wenn Edge fragt). Der Eintrag bei den Edge-Add-ons ist unterwegs, eine Version für **Firefox** folgt. Alternativ aus dem Quellcode bauen (siehe unten) und als entpackte Erweiterung laden.
+**[AdLess im Chrome Web Store holen](https://chromewebstore.google.com/detail/adless/mfddbnkcgfcpnchpekbgolnbjckbhmmm)** für Chrome oder **[bei den Microsoft-Edge-Add-ons](https://microsoftedge.microsoft.com/addons/detail/adless/ipacahpkcihocpplflihnieajgbaibhh)** für Edge. Eine Version für **Firefox** folgt. Alternativ aus dem Quellcode bauen (siehe unten) und als entpackte Erweiterung laden.
 
 ## Bedienung
 
