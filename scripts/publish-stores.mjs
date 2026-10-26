@@ -49,11 +49,21 @@ const chrome = async () => {
         return;
     }
 
-    const { body: upload } = await request(`https://chromewebstore.googleapis.com/upload/v2/${item}:upload`, {
-        method: 'POST',
-        headers: { ...headers, 'Content-Type': 'application/zip' },
-        body: zip,
-    });
+    let upload;
+    try {
+        ({ body: upload } = await request(`https://chromewebstore.googleapis.com/upload/v2/${item}:upload`, {
+            method: 'POST',
+            headers: { ...headers, 'Content-Type': 'application/zip' },
+            body: zip,
+        }));
+    } catch (error) {
+        // While an earlier version is in review the store takes no new package; that is not a failure.
+        if (error.message.includes('NOT_UPDATEABLE')) {
+            console.log('Chrome Web Store: an earlier version is still in review, not uploaded - upload the release ZIP once it is approved');
+            return;
+        }
+        throw error;
+    }
     let state = upload.uploadState;
     for (let i = 0; state === 'IN_PROGRESS' && i < 30; i++) {
         await sleep(10_000);
