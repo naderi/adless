@@ -71,8 +71,14 @@ const edge = async () => {
     const api = `https://api.addons.microsoftedge.microsoft.com/v1/products/${env.EDGE_PRODUCT_ID}/submissions`;
     const headers = { Authorization: `ApiKey ${env.EDGE_API_KEY}`, 'X-ClientID': env.EDGE_CLIENT_ID };
     if (check) {
-        // The API has no read-only call, so the credentials only show on the first upload.
-        console.log('Edge Add-ons: credentials set, not checked');
+        // The API has no read-only status call, so ask for an operation that does not exist: bad
+        // credentials answer 401/403, valid ones get a "not found" for the made-up operation.
+        const probe = await fetch(`${api}/draft/package/operations/00000000-0000-0000-0000-000000000000`, { headers });
+        const text = await probe.text();
+        if (probe.status === 401 || probe.status === 403) {
+            throw new Error(`credentials rejected: ${probe.status} ${text}`);
+        }
+        console.log(`Edge Add-ons: credentials accepted (probe answered ${probe.status} ${text})`);
         return;
     }
 
