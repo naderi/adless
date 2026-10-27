@@ -164,9 +164,6 @@
   "errorInvalidUrl": {
     "message": "Bitte eine gültige http(s)-Adresse eingeben."
   },
-  "userScriptsHint": {
-    "message": "Damit kosmetische Filter und Scriptlets aus eigenen Regeln und Listen wirken, erlaube Nutzerskripte für AdLess: chrome://extensions öffnen, bei AdLess „Details“ wählen und „Nutzerskripte zulassen“ einschalten."
-  },
   "rulesHint": {
     "message": "Ein Filter pro Zeile in uBlock-Origin-Syntax, Zeilen mit ! sind Kommentare."
   },

@@ -4,7 +4,6 @@ import { ubol } from '@/lib/ubol';
 import { Button, Row, t } from '@/ui/components';
 
 import { TextEditor } from './text-editor';
-import { UserScriptsHint } from './user-scripts-hint';
 
 export const UserRules = () => {
     const [rules, setRules] = useState<string>();
@@ -38,7 +37,6 @@ export const UserRules = () => {
                     setRules(text.trim());
                 }}
             />
-            <UserScriptsHint />
 
             <h3 class="section-title">{t('pickedTitle')}</h3>
             <p class="hint">{t('pickedHint')}</p>

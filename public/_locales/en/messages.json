@@ -164,9 +164,6 @@
   "errorInvalidUrl": {
     "message": "Please enter a valid http(s) address."
   },
-  "userScriptsHint": {
-    "message": "To apply cosmetic filters and scriptlets from your own rules and lists, allow user scripts for AdLess: open chrome://extensions, choose “Details” for AdLess and turn on “Allow user scripts”."
-  },
   "rulesHint": {
     "message": "One filter per line in uBlock Origin syntax, lines starting with ! are comments."
   },

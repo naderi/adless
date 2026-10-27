@@ -3,7 +3,6 @@ import { useEffect, useState } from 'preact/hooks';
 import { type ImportedList, ubol } from '@/lib/ubol';
 import { Button, Row, t, Toggle } from '@/ui/components';
 
-import { UserScriptsHint } from './user-scripts-hint';
 
 const isHttpUrl = (value: string) => {
     try {
@@ -124,7 +123,6 @@ export const CustomLists = () => {
                     <Button icon="refresh" disabled={busy} onClick={() => void update()}>{t('updateNow')}</Button>
                 </div>
             )}
-            <UserScriptsHint />
         </>
     );
 };

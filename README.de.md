@@ -39,8 +39,6 @@ Die Einstellungen (*Einstellungen* im Popup):
 - **Ausnahmen** – Seiten, auf denen AdLess nicht blockiert
 - **Allgemein** – *Werbung und Tracker blockieren*, *Cookie-Banner ablehnen*, Export und Import aller Einstellungen
 
-Kosmetische Filter und Scriptlets aus eigenen Regeln und Listen brauchen die Nutzerskript-Berechtigung des Browsers: `chrome://extensions` öffnen, bei AdLess *Details* wählen und *Nutzerskripte zulassen* einschalten. Die mitgelieferten Listen und die AdLess-Filter wirken auch ohne.
-
 ## Ein Problem melden
 
 Werbung, die durchrutscht, eine Seite, die nicht funktioniert, ein Cookie-Banner, der bleibt: *Problem melden* im Popup nutzen oder [ein Issue öffnen](https://github.com/naderi/adless/issues/new?template=site-problem.yml). Korrekturen kommen in die [AdLess-Filter](public/filters/adless.txt), die jedes installierte AdLess innerhalb eines halben Tages übernimmt.

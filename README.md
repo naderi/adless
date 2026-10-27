@@ -39,8 +39,6 @@ The settings (*Settings* in the popup):
 - **Allowlist** – sites where AdLess does not block
 - **General** – *Block ads and trackers*, *Reject cookie banners*, export and import of all settings
 
-Cosmetic filters and scriptlets from your own rules and lists need the browser's user scripts permission: open `chrome://extensions`, choose *Details* for AdLess and turn on *Allow user scripts*. The bundled lists and the AdLess filters work without it.
-
 ## Reporting a problem
 
 Ads that get through, a page that breaks, a cookie banner that stays: use *Report problem* in the popup, or [open an issue](https://github.com/naderi/adless/issues/new?template=site-problem.yml). Fixes go into the [AdLess filters](public/filters/adless.txt), which every installed AdLess picks up within half a day.

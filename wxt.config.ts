@@ -99,8 +99,10 @@ export default defineConfig({
                 default_icon: { 16: 'img/icon_16.png', 32: 'img/icon_32.png', 64: 'img/icon_64.png' },
             },
             background: { service_worker: 'js/adless/sw.js', type: 'module' },
-            // The engine's permissions, plus what the per-type counts in the popup need.
-            permissions: [...engine.permissions, 'webRequest', 'webNavigation'],
+            // The engine's permissions, plus what the per-type counts in the popup need. Not
+            // userScripts: it would run scripts generated from downloaded filter lists, which the
+            // Chrome Web Store counts as remotely hosted code.
+            permissions: [...engine.permissions.filter((p: string) => p !== 'userScripts'), 'webRequest', 'webNavigation'],
             host_permissions: engine.host_permissions,
             commands: engine.commands,
             ...packagePaths(engine),

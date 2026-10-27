@@ -86,7 +86,6 @@ AdLess blocks ads, trackers and other unwanted content on web pages. As part of 
 | declarativeNetRequest | Blocks requests to ads, trackers and malware sites with the rules of the bundled filter lists, the AdLess filter list and the user's own rules. |
 | Host permission (`<all_urls>`) | An ad blocker has to work on every site the user visits: to apply its filter rules, to hide ad elements, and to answer cookie banners. Page content is processed only locally. |
 | scripting | Injects the CSS that hides ad elements and the element picker into the page, and runs the cookie-banner handling in the page's frames. |
-| userScripts | Applies cosmetic filters and scriptlets from filter lists and rules the user adds themselves. Only active after the user allows user scripts for the extension. |
 | webRequest | Counts the requests blocked by the extension per tab (read-only, no blocking through webRequest), so the popup can show the counts and the blocked addresses. |
 | webNavigation | Resets the per-tab counts when a new page loads, and applies element hiding to each frame as it starts loading. |
 | storage | Stores the user's settings, filter lists and rules locally. |
