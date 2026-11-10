@@ -302,6 +302,12 @@
   "cookieBannersHint": {
     "message": "Answers cookie banners with \"reject\" on its own, or hides them where there is no such button. Not on sites where AdLess is switched off."
   },
+  "badgeCount": {
+    "message": "Show blocked count on the toolbar icon"
+  },
+  "badgeCountHint": {
+    "message": "Shows the number of requests blocked on the current page as a badge on the AdLess icon."
+  },
   "ownListGroup": {
     "message": "AdLess"
   },

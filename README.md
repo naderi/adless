@@ -37,7 +37,7 @@ The settings (*Settings* in the popup):
 - **Custom lists** – add any filter list by its address (uBlock Origin, Adblock Plus and AdGuard syntax)
 - **My rules** – your own filters, and the elements you hid with the picker
 - **Allowlist** – sites where AdLess does not block
-- **General** – *Block ads and trackers*, *Reject cookie banners*, export and import of all settings
+- **General** – *Block ads and trackers*, *Reject cookie banners*, *Show blocked count on the toolbar icon*, export and import of all settings
 
 ## Reporting a problem
 

@@ -37,7 +37,7 @@ Die Einstellungen (*Einstellungen* im Popup):
 - **Eigene Listen** – beliebige Filterlisten über ihre Adresse hinzufügen (uBlock-Origin-, Adblock-Plus- und AdGuard-Syntax)
 - **Eigene Regeln** – eigene Filter und die mit der Elementauswahl ausgeblendeten Elemente
 - **Ausnahmen** – Seiten, auf denen AdLess nicht blockiert
-- **Allgemein** – *Werbung und Tracker blockieren*, *Cookie-Banner ablehnen*, Export und Import aller Einstellungen
+- **Allgemein** – *Werbung und Tracker blockieren*, *Cookie-Banner ablehnen*, *Anzahl blockierter Elemente im Symbol anzeigen*, Export und Import aller Einstellungen
 
 ## Ein Problem melden
 

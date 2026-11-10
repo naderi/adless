@@ -302,6 +302,12 @@
   "cookieBannersHint": {
     "message": "Beantwortet Cookie-Banner selbstständig mit „Ablehnen“ oder blendet sie aus, wo es keinen solchen Knopf gibt. Nicht auf Seiten, auf denen AdLess ausgeschaltet ist."
   },
+  "badgeCount": {
+    "message": "Anzahl blockierter Elemente im Symbol anzeigen"
+  },
+  "badgeCountHint": {
+    "message": "Zeigt die Zahl der auf der aktuellen Seite blockierten Anfragen als Zähler auf dem AdLess-Symbol in der Symbolleiste."
+  },
   "ownListGroup": {
     "message": "AdLess"
   },

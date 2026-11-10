@@ -46,7 +46,11 @@ export const ubol = {
         maxNumberOfEnabledRulesets: number;
         defaultFilteringMode: number;
         hasOmnipotence: boolean;
+        showBlockedCount: boolean;
+        canShowBlockedCount: boolean;
     }>('getOptionsPageData'),
+    /** Blocked-requests count as badge on the toolbar icon. */
+    setShowBlockedCount: (state: boolean) => ask<void>('setShowBlockedCount', { state }),
     getDefaultConfig: () => ask<{ rulesets: string[] }>('getDefaultConfig'),
     applyRulesets: (enabledRulesets: string[], toRemove?: string[]) =>
         ask<void>('applyRulesets', { enabledRulesets, toRemove }),

@@ -80,10 +80,12 @@ const download = (backup: Backup) => {
 export const General = () => {
     const [level, setLevel] = useState<number>();
     const [cookieBanners, setCookieBanners] = useState(true);
+    const [badgeCount, setBadgeCount] = useState<boolean>();
     const [message, setMessage] = useState<{ text: string; error: boolean }>();
 
     useEffect(() => {
         void ubol.getDefaultFilteringMode().then(setLevel);
+        void ubol.getOptionsPageData().then((page) => setBadgeCount(page.canShowBlockedCount ? page.showBlockedCount : undefined));
         void readState().then((s) => setCookieBanners(s.cookieBanners !== false));
     }, []);
 
@@ -94,6 +96,11 @@ export const General = () => {
     const changeCookieBanners = async (on: boolean) => {
         setCookieBanners(on);
         await updateState((s) => { s.cookieBanners = on; });
+    };
+
+    const changeBadgeCount = async (on: boolean) => {
+        setBadgeCount(on);
+        await ubol.setShowBlockedCount(on);
     };
 
     const setEnabled = async (on: boolean) => {
@@ -135,6 +142,11 @@ export const General = () => {
                 <Row title={t('cookieBanners')} description={t('cookieBannersHint')}>
                     <Toggle checked={cookieBanners} label={t('cookieBanners')} onChange={(on) => void changeCookieBanners(on)} />
                 </Row>
+                {badgeCount !== undefined && (
+                    <Row title={t('badgeCount')} description={t('badgeCountHint')}>
+                        <Toggle checked={badgeCount} label={t('badgeCount')} onChange={(on) => void changeBadgeCount(on)} />
+                    </Row>
+                )}
             </div>
 
             <h3 class="section-title">{t('backup')}</h3>
